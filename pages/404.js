@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
@@ -12,14 +13,20 @@ const NotFound = () => {
         }, 4000)
     }, [])
 
-    return ( 
-        <main className="main-404 row">
-            <div className="col col-10 offset-1 col-md-8 offset-md-2">
-            <h1 className="heading-404 mt-5">404 Error: Page Not Found.</h1> 
-            <h2>Sorry, but we cannot find the page you are looking for. Please check your url and try again.</h2>
-            <Link href="/blog"><a className="btn btn-primary mt-4"><i className="fas fa-long-arrow-alt-left"></i> Back to Health Blog</a></Link>
-        </div>
-        </main>
+    return (
+        <>
+            <Head>
+                <title>Health Blog | 404: Not Found</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            </Head>
+            <main className="main-404 row">
+                <div className="col col-10 offset-1 col-md-8 offset-md-2">
+                <h1 className="heading-404 mt-5">404 Error: Page Not Found.</h1> 
+                <h2>Sorry, but we cannot find the page you are looking for. Please check your url and try again.</h2>
+                <Link href="/blog"><a className="btn btn-primary mt-4"><i className="fas fa-long-arrow-alt-left"></i> Back to Health Blog</a></Link>
+            </div>
+            </main>
+        </>
     );
 }
 
