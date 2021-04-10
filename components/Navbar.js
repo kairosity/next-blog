@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const Navbar = () => {
     return ( 
         <nav class="navbar shadow-sm navbar-expand-lg navbar-light d-flex align-content-center align-items-start fixed-top">
@@ -10,13 +12,13 @@ const Navbar = () => {
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link hvr-underline-from-center" aria-current="page" href="/blog">Home</a>
+                            <Link href="/blog"><a class="nav-link hvr-underline-from-center" aria-current="page">Home</a></Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link hvr-underline-from-center" href="/register">Register</a>
+                            <Link href="/register"><a class="nav-link hvr-underline-from-center">Register</a></Link>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link hvr-underline-from-center" href="/login">Login</a>
+                            <Link href="/login"><a class="nav-link hvr-underline-from-center">Login</a></Link>
                         </li>
                     </ul>
                     <form class="d-flex search" action="/blog/search" method="GET">
