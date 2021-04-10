@@ -1,30 +1,31 @@
+
 import Link from 'next/link'
 
 const Navbar = () => {
     return ( 
-        <nav class="navbar shadow-sm navbar-expand-lg navbar-light d-flex align-content-center align-items-start fixed-top">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+        <nav className="navbar shadow-sm navbar-expand-lg navbar-light d-flex align-content-center align-items-start fixed-top">
+            <div className="container-fluid">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
                     aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="/blog"><i class="fas fa-heartbeat"></i></a>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <Link href="/blog"><a class="nav-link hvr-underline-from-center" aria-current="page">Home</a></Link>
+                <Link href="/blog"><a className="navbar-brand"><i className="fas fa-heartbeat"></i></a></Link>
+                <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                            <Link href="/blog"><a className="nav-link hvr-underline-from-center" aria-current="page">Home</a></Link>
                         </li>
-                        <li class="nav-item">
-                            <Link href="/register"><a class="nav-link hvr-underline-from-center">Register</a></Link>
+                        <li className="nav-item">
+                            <Link href="/register"><a className="nav-link hvr-underline-from-center">Register</a></Link>
                         </li>
-                        <li class="nav-item ">
-                            <Link href="/login"><a class="nav-link hvr-underline-from-center">Login</a></Link>
+                        <li className="nav-item ">
+                            <Link href="/login"><a className="nav-link hvr-underline-from-center">Login</a></Link>
                         </li>
                     </ul>
-                    <form class="d-flex search" action="/blog/search" method="GET">
-                        <input class="form-control me-2" type="text" name="keyword" placeholder="Search Posts"
+                    <form className="d-flex search" action="/blog/search" method="GET">
+                        <input className="form-control me-2" type="text" name="keyword" placeholder="Search Posts"
                             aria-label="Search"/>
-                        <button class="btn btn-primary" type="submit">Search</button>
+                        <button className="btn btn-primary" type="submit">Search</button>
                     </form>
                 </div>
             </div>

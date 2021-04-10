@@ -3,51 +3,51 @@ import SkipToMain from '../components/SkipToMain'
 const Register = () => {
     return (
         <>
-            <aside class="register-stm">
+            <aside className="register-stm">
                 <SkipToMain />
             </aside>
             <main>
-                <div class="container">
-                    <div id="main" class="row">
-                        <div class="form-container register-form col col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-5">
-                            <h1 class="mt-4">Register</h1>
+                <div className="container">
+                    <div id="main" className="row">
+                        <div className="form-container register-form col col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-5">
+                            <h1 className="mt-4">Register</h1>
 
-                                <form class="mt-4" action="/register" method="POST">
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Username</label>
-                                        <input type="text" name="username" class="form-control" id="username"
+                                <form className="mt-4" action="/register" method="POST">
+                                    <div className="mb-3">
+                                        <label for="username" className="form-label">Username</label>
+                                        <input type="text" name="username" className="form-control" id="username"
                                             aria-describedby="username" required />
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email address</label>
-                                        <input type="email" name="email" class="form-control" id="email"
+                                    <div className="mb-3">
+                                        <label for="email" className="form-label">Email address</label>
+                                        <input type="email" name="email" className="form-control" id="email"
                                             aria-describedby="emailHelp" required />
-                                        <div id="emailHelp" class="form-text">We'll never share your email with
+                                        <div id="emailHelp" className="form-text">We'll never share your email with
                                             anyone else.
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input type="password" name="password" class="form-control" id="password"
+                                    <div className="mb-3">
+                                        <label for="password" className="form-label">Password</label>
+                                        <input type="password" name="password" className="form-control" id="password"
                                             aria-describedby="passwordHelp" />
-                                        <div id="passwordHelp" class="form-text">Please choose a password</div>
+                                        <div id="passwordHelp" className="form-text">Please choose a password</div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="passwordConfirmation" class="form-label">Password
+                                    <div className="mb-3">
+                                        <label for="passwordConfirmation" className="form-label">Password
                                             Confirmation</label>
-                                        <input type="password" name="passwordConfirmation" class="form-control"
+                                        <input type="password" name="passwordConfirmation" className="form-control"
                                             id="passwordConfirmation" aria-describedby="passwordConfirmationHelp" />
-                                        <div id="passwordConfirmationHelp" class="form-text">Please enter your new
+                                        <div id="passwordConfirmationHelp" className="form-text">Please enter your new
                                             password
                                             again</div>
                                     </div>
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" name="marketing" class="form-check-input" id="marketing" />
-                                        <label class="form-check-label" for="marketing">Please send me a monthly
+                                    <div className="mb-3 form-check">
+                                        <input type="checkbox" name="marketing" className="form-check-input" id="marketing" />
+                                        <label className="form-check-label" for="marketing">Please send me a monthly
                                             email
                                             update.</label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Register</button>
+                                    <button type="submit" className="btn btn-primary">Register</button>
                                 </form>
                         </div>
                     </div>
