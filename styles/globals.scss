@@ -1,0 +1,618 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "customVariables";
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+// @import "../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap');
+
+
+// CUSTOM VARIABLES start
+$enable-shadows: true;
+$primary: $indigo;
+$main-text-color: $gray-800;
+$box-shadow:  0px 3px 15px rgba(0,0,0,0.2);
+$form-box-shadow:  rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+$subheading-color: $gray-800;
+$byline-color: $gray-600;
+$transparency-white:rgba(255,255,255, 0.2);
+$blog-heading-font: "Work Sans";
+$blog-p-font: "Source Sans Pro";
+$subtle-corners : 5px;
+// custom variables end
+
+// HOVER ANIMATIONS FROM HOVER.CSS start
+/* Underline From Center */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 0;
+  background: $indigo;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+// Hover animations from hover.css end
+
+// BACKGROUND PAGE STYLES start
+body{
+  background-color: $white;
+  main{
+    padding-top: 70px;
+    padding-bottom:20px;
+    .feature{
+      background: url(../public/images/home.jpg) no-repeat;
+      background-position: center center;
+      height: 500px;
+      padding: 2rem 0;
+      .container{
+        background-color: $transparency-white;
+        backdrop-filter: blur(6px);
+        box-shadow: $box-shadow;
+        padding: 30px 50px;
+        margin-top: 6rem;
+        border-radius: $subtle-corners;
+        h1{
+          font-size: 2rem;
+          color: $indigo;
+          letter-spacing: 0.8px;
+          font-weight: 300;
+        }
+        p{
+          color: $main-text-color;
+          font-size: 1rem;
+          list-style-type: none;
+        }
+        .content-hint{
+          margin-top: 1rem;
+          cursor: pointer;
+          a{
+            text-decoration: none;
+          h4{
+            color: $main-text-color;
+            font-size: 0.9rem;
+          }
+          .fa-chevron-down{
+            color: $main-text-color;
+            font-size: 0.9rem;
+          } 
+          }
+        }   
+      }
+    }
+  }
+}
+// page styles end
+
+a.skip-to-main {
+	opacity: 0;
+	text-transform: uppercase;
+  text-decoration: none;
+	pointer-events: none;
+	cursor: default;
+  padding-top: 80px;
+}
+a.skip-to-main:focus {
+	color: $indigo;
+  opacity: 1;
+}
+
+// TEXT STYLES start
+.white-text{
+  color: $white;
+}
+.dark-text{
+  color: $indigo;
+}
+// text styles end
+
+// NAVIGATION STYLES start
+.navbar {
+  background: $cyan;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100px;
+  padding: 1rem;
+  .navbar-brand{
+    color: $indigo;
+    font-size: 2.4rem;
+    &:hover{
+      color: $pink;
+    }
+  }
+  .navbar-nav{
+    .nav-item {
+      .nav-link{
+        color: $indigo;
+        font-weight: 500;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        
+      } 
+    }  
+  }
+}
+
+.nav-item.active{
+  background-color: red;
+}
+
+// navigation styles end
+
+// BUTTON styles start
+.btn-primary{
+  background-color: $blue;
+  border-color: $blue;
+  &:hover{
+    background-color: $indigo;
+    border-color: transparent;
+  }
+}
+// button styles end
+
+
+// LOGIN & REGISTER FORM STYLES start
+.login-form,
+.register-form{
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  box-shadow: $form-box-shadow;
+  border-radius: $subtle-corners;
+}
+.register-form{
+  margin-top: 0rem;
+  margin-bottom: 3rem;
+}
+.login-stm{
+  padding-top: 25px;
+}
+.register-stm{
+  padding-top: 100px;
+}
+// login & regsiter form styles end
+
+// CARD STYLES start
+.card{
+  box-shadow: $box-shadow;
+  .card-img-top{
+    box-shadow: black;
+  }
+  .card-body{
+    .post-title-link{
+      h3.card-title{
+        text-decoration: none;
+        color: $subheading-color;
+        font-weight: 300;
+      }
+    }
+      p.author,
+      p.post-date{
+        color: $byline-color;
+      }
+      p.post-date{
+        font-size: 0.9rem;
+      }
+      p.card-text{
+        color: $main-text-color;
+      }
+      a.read-more{
+        color: $white;
+      }
+    }
+  }
+//card styles end
+
+// BLOG POST DETAILS PAGE STYLES start
+.blog-post-container{
+  padding-left: 0;
+  padding-right: 0;
+}
+// blog post details page styles end
+
+// BLOG POST HEADER STYLES start
+.blog-post-header{
+  padding-top: 10px;
+      .header-bg{
+        height: 25rem;
+        background: url('../public/images/blog-post-img.jpg') no-repeat;
+        filter: brightness(110%);
+        object-fit: cover;
+        background-position: center center;
+        position: relative;
+        .container{
+          background-color: $transparency-white;
+          backdrop-filter: blur(6px);
+          width: 90%;
+          padding: 2.3rem;
+          border-radius: 5px;
+          box-shadow: 0 8px 6px -6px $gray-700;
+          h1{
+            font-family: $blog-heading-font;
+            font-size: 1rem;
+            font-weight: 300;
+          }
+          p{
+            font-family: $blog-p-font;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 0.9rem;
+          }
+        }
+
+      }
+  }
+
+// blog post header styles end
+
+// BLOG POST BODY STYLES start
+section.blog-post{
+  padding-top: 3rem;
+  .row{
+    .back-col{
+      a{
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: $indigo;
+        transition: all 0.2s ease-in-out;
+        transition-duration: 0.75s;
+  }
+}
+  }
+  .post-container{
+    .post-title{
+      font-weight: 300;
+      font-size: 3rem;
+    }
+    .author-container{
+      .headshot-container{
+      height: 50px;
+      width: 50px;
+      img.author-headshot{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .author-link{
+      margin-bottom: -40px;
+      margin-left: 20px;
+      letter-spacing: .7px;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    }
+    .post-content-container{
+      .post-content{
+      font-size: 1.1rem;
+      line-height: 1.7;
+      letter-spacing: 0.3px;
+    }
+    .post-photo-container{
+      
+      img{
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+    }
+    
+}
+}
+// blog post body styles end
+
+// BLOG ADD COMMENT FORM STYLES start
+section.add-comment{
+  padding: 0 1.4rem 1.4rem 1.4rem;
+  h3{
+    font-weight: 300;
+  }
+}
+// blog add comment form styles end
+
+// BLOG COMMENTS STYLES start
+.blog-comments{
+  .blog-comments-container{
+    margin: 0 1rem;
+  .comment-count{
+    letter-spacing: 0.9px;
+    margin-bottom: 1.2rem;
+  }
+  .comment-username{
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  }
+  .comment-date{
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+  .comment-content{
+
+  }
+  a.btn-outline-primary{
+    padding: 0.14rem 0.45rem;
+    &:hover{
+      background-color: $cyan;
+      border-color: $cyan;
+      color: $indigo;
+    }
+  }
+  a.btn-outline-danger{
+    padding: 0.14rem 0.45rem;
+    &:hover{
+      background-color: $red;
+      border-color: $red;
+      color: $white;
+    }
+  }
+  .collapse{
+    form{
+      margin-top: 1rem;
+    }
+  }
+  .comment-divider:last-of-type{
+    height: 0;
+  }
+  }
+  
+}
+// blog comments styles end
+
+// DASHBOARD STYLES start
+.dashboard-posts-heading{
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 3rem;
+  font-weight: 300;
+
+}
+// dashboard styles end
+
+// FOOTER STYLES start
+footer {
+  background: $cyan;
+  background-position: center center;
+  background-size: cover;
+  .links-row{
+    padding-top: 4rem;
+    .text-links-container{
+      .center-me{
+        align-self: center;
+        padding: 1.2rem;
+        .footer-heading{
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $main-text-color;
+      }
+      .nav-link{
+        padding: 0;
+        margin: 0;
+        font-size: 0.8rem;
+        color: $indigo;
+        &:hover{
+          color: $pink;
+        }
+      }
+      }
+      
+    }
+  }
+  .footer-social-media{
+    .social-media-container{
+    .footbar{
+        .nav-item{
+          .nav-link{
+            font-size: 1.1rem;
+            color: $indigo;
+            &:hover{
+            color: $pink;
+            }
+          }
+        }
+        
+      }
+  }
+}
+  p.copyright-notice{
+    font-size: 0.9rem;
+    color: $main-text-color;
+  }
+} 
+// footer styles end
+
+// 404 PAGE STYLES start
+.main-404{
+  height: 70vh;
+  .heading-404{
+    padding: 5rem 0;
+  }
+}
+// 404 page styles end
+
+// ANIMATIONS start
+
+.fa-chevron-down {
+	-webkit-animation: down-arrow 2s ease-in infinite;
+	animation: down-arrow 2s ease-in infinite;
+}
+@-webkit-keyframes down-arrow {
+	0% {
+		-webkit-transform: translate(0, 0px);
+		transform: translate(0, 0px);
+	}
+	25% {
+		-webkit-transform: translate(0, 0px);
+		transform: translate(0, 0px);
+	}
+	50% {
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+	75% {
+		-webkit-transform: translate(0, 20px);
+		transform: translate(0, 20px);
+	}
+	100% {
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+}
+@keyframes down-arrow {
+	0% {
+		-webkit-transform: translate(0, 0px);
+		transform: translate(0, 0px);
+	}
+	25% {
+		-webkit-transform: translate(0, 0px);
+		transform: translate(0, 0px);
+	}
+	50% {
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+	75% {
+		-webkit-transform: translate(0, 20px);
+		transform: translate(0, 20px);
+	}
+	100% {
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+}
+
+.fa-heartbeat{
+  -webkit-animation: heartbeat 1s infinite alternate;
+	animation: heartbeat 1s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes heartbeat {
+	to { transform: scale(1.2); }
+}
+// animations end
+
+// MEDIA QUERIES start
+
+@include media-breakpoint-up(md){
+
+// BACKGROUND PAGE STYLES (md & up) start
+body{
+  main{
+    .feature{
+      .container{
+        h1{
+          font-size: 3rem;
+        }
+        p{
+          font-size: 1.1rem;
+        }
+        .content-hint{
+          margin-top: 1rem;
+          h4{
+            font-size: 1.4rem;
+          }
+          .fa-chevron-down{
+            font-size: 1.2rem;
+          } 
+          }
+          
+        }
+        
+      }
+    }
+  }
+  // background page styles (md & up) end
+
+// BLOG POST HEADER STYLES (md & up) start
+.blog-post-header{
+      .header-bg{
+        .container{
+          width: 60%;
+          h1{
+            font-size: 2rem;
+            font-weight: 300;
+          }
+          p{
+            font-weight: 400;
+            font-size: 1.3rem;
+          }
+        }
+
+      }
+  }
+// blog post header styles (md & up) end
+section.blog-post{
+  .row{
+    .back-col{
+      a{
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+}
+// media breakpoint md end
+
+@include media-breakpoint-up(lg) {
+// BACKGROUND PAGE STYLES start
+body{
+  main{
+    .feature{
+      .container{
+        h1{
+          font-size: 3rem;
+        }
+        p{
+          font-size: 1.3rem;
+        }
+        .content-hint{
+          margin-top: 1rem;
+          a{
+            h4{
+            font-size: 1.2rem;
+            }
+            .fa-chevron-down{
+              font-size: 1.2rem;
+            } 
+          }
+          }
+          
+        }
+        
+      }
+    }
+  }
+
+  .navbar{
+    clip-path: ellipse(100% 100% at 50% 0%);
+  }
+
+  footer {
+    clip-path: ellipse(100% 100% at 50% 100%);
+  }
+ }
+ // media breakpoint lg end
+
+//  media queries end
