@@ -199,10 +199,12 @@ a.skip-to-main:focus {
   }
   .card-body{
     .post-title-link{
-      h3.card-title{
+      text-decoration: None;
+      .card-title{
         text-decoration: none;
         color: $subheading-color;
         font-weight: 300;
+        font-size: 1.75rem;
       }
     }
       p.author,
