@@ -28,13 +28,13 @@ const Blog = ({ posts }) => {
                 <meta name="ICBM" content="53.349765, -6.260273" />
             </Head>
             
-            <main class="flex-container">
+            <main className="flex-container">
 {/* Header */}
-                <section class="feature">
+                <section className="feature">
                     <SkipToMain />
-                        <div class="container d-flex flex-column">
-                            <h1 class="main-heading dark-text">Welcome to this Health Blog</h1>
-                            <p class="lead">This is an interesting blog featuring lots of different articles about
+                        <div className="container d-flex flex-column">
+                            <h1 className="main-heading dark-text">Welcome to this Health Blog</h1>
+                            <p className="lead">This is an interesting blog featuring lots of different articles about
                                 health, nutrition and longevity.
                                 It is designed to catch your attention in a calming manner. This area could also be used
                                 to display the most recent
@@ -42,10 +42,10 @@ const Blog = ({ posts }) => {
                                 Either way, this is a short snippet
                                 to entice the reader to stay longer and peruse the site.
                             </p>
-                            <div class="content-hint align-self-center d-flex flex-column">
-                                <Link href="#firstSection"><a class="align-self-center d-flex flex-column">
-                                    <h4 id="main" class="align-self-center">Scroll down to learn more...</h4>
-                                    <i class="fas fa-chevron-down align-self-center"></i>
+                            <div className="content-hint align-self-center d-flex flex-column">
+                                <Link href="#firstSection"><a className="align-self-center d-flex flex-column">
+                                    <h4 id="main" className="align-self-center">Scroll down to learn more...</h4>
+                                    <i className="fas fa-chevron-down align-self-center"></i>
                                 </a></Link>
                             </div>
                         </div>
@@ -58,8 +58,8 @@ const Blog = ({ posts }) => {
 
             { posts.map(post => (
 
-                <div className="col post-col mb-4 d-flex">
-                    <Card key={ post.id } className="card post-card rounded d-flex">
+                <div key={ post.id } className="col post-col mb-4 d-flex">
+                    <Card  className="card post-card rounded d-flex">
                         <Link href={`/blog/${post.slug}`}><a><Card.Img variant="top" src={ post.photo } className="card-img-top" alt={ post.title }/></a></Link>
                         <Card.Body className="card-body d-flex flex-column justify-content-between m-2">
                             <Link href={`/blog/${post.slug}`}><a className="post-title-link">

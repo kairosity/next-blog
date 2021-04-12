@@ -38,13 +38,13 @@ const QuoteHeader = ({id}) => {
     }
 
     return ( 
-        <section class="blog-post-header">
-            <div class="row">
-                <div class="header-bg d-flex align-items-center">
+        <section className="blog-post-header">
+            <div className="row">
+                <div className="header-bg d-flex align-items-center">
                     <SkipToMain />
-                        <div class="container d-flex flex-column ">
-                            <h1 class="align-self-center">{ quote }</h1>
-                            <p class="align-self-end">- { quoteAuthor } -</p>
+                        <div className="container d-flex flex-column ">
+                            <h1 className="align-self-center">{ quote }</h1>
+                            <p className="align-self-end">- { quoteAuthor } -</p>
                         </div>
                 </div>
             </div>
