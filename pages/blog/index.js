@@ -13,7 +13,10 @@ export const getStaticProps = async () => {
     }
 }
 
+
+
 const Blog = ({ posts }) => {
+    console.log(posts)
     return (
         <>
             <Head>

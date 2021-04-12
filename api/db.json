@@ -169,14 +169,6 @@
       "content": "Nunc facilisis nisi vitae dapibus sodales. Proin vitae nunc turpis."
     },
     {
-      "id": 8,
-      "postId": 2,
-      "parentId": null,
-      "user": "tracy",
-      "date": "2021-03-17",
-      "content": "Hi awesome post"
-    },
-    {
       "id": 9,
       "postId": 8,
       "parentId": null,
@@ -209,14 +201,6 @@
       "content": "This is a new comment"
     },
     {
-      "id": 14,
-      "postId": 10,
-      "parentId": null,
-      "user": "rachel",
-      "date": "2021-03-20",
-      "content": "I'd like to leave a respectful and on-topic comment. If that's ok?"
-    },
-    {
       "id": 15,
       "postId": 6,
       "parentId": null,
@@ -231,22 +215,6 @@
       "user": "testing12",
       "date": "2021-03-22",
       "content": "Just testing this again."
-    },
-    {
-      "postId": 1,
-      "parentId": null,
-      "user": "Harry",
-      "date": "2021-04-11",
-      "content": "ksdjflsd",
-      "id": 19
-    },
-    {
-      "postId": 1,
-      "parentId": null,
-      "user": "Harriet",
-      "date": "2021-04-11",
-      "content": "Another comment",
-      "id": 20
     },
     {
       "postId": 7,
@@ -279,6 +247,30 @@
       "date": "2021-04-12",
       "content": "Here is a new comment that I won't delete.",
       "id": 24
+    },
+    {
+      "postId": 8,
+      "parentId": null,
+      "user": "Harry",
+      "date": "2021-04-12",
+      "content": "Hello",
+      "id": 27
+    },
+    {
+      "postId": 8,
+      "parentId": null,
+      "user": "Valerie",
+      "date": "2021-04-12",
+      "content": "asdas",
+      "id": 28
+    },
+    {
+      "postId": 9,
+      "parentId": null,
+      "user": "Harry",
+      "date": "2021-04-12",
+      "content": "Won't update immediately",
+      "id": 29
     }
   ]
 }

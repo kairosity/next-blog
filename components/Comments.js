@@ -8,17 +8,16 @@ const Comments = ({postId}) => {
     const [comments, setComments] = useState();
     const [name, setName] = useState('');
     const [newComment, setNewComment] = useState('');
+    const [commentCount, setCommentCount] = useState(null)
     
     // Fetch All Comments
-    useEffect(() => {
-        fetch(`http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`)
-            .then(response => {
-                return response.json();
-            })
-            .then((data) => {
-                setComments(data)
-            })
-    }, [comments]);
+    useEffect(async() => {
+        const response = await fetch(`http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`)
+        const data = await response.json()
+        setComments(data)
+        setCommentCount(data.length)
+        console.log(commentCount)
+    }, [commentCount]);
 
     // Determine the number of comments once they have loaded.
     const commentStatement = (comments) => {
@@ -48,6 +47,7 @@ const Comments = ({postId}) => {
             content: newComment,
         }
 
+        
         // Post new comment to Comments api
         fetch(`http://localhost:8000/comments?_sort=date&_order=asc`, {
             method: 'POST',
@@ -55,6 +55,16 @@ const Comments = ({postId}) => {
             body: JSON.stringify(newCommentToPost),
         }).then(() => {
             console.log("New comment added")
+
+            fetch(`http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`)
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    setCommentCount(data.length)
+                    console.log(commentCount)
+                })
+            
         })
     }
     // Comment Delete Handler
@@ -64,7 +74,16 @@ const Comments = ({postId}) => {
         fetch(`http://localhost:8000/comments/${commentId}`, {
             method: 'DELETE',
         }).then(() => {
-            console.log("Comment deleted.")
+            // Another fetch req and comment count
+            fetch(`http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`)
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    setCommentCount(data.length)
+                    console.log(commentCount)
+                })
+                console.log("Comment deleted.")
         })
     }
 

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import AddComment from '../../components/AddComment';
 import Comments from '../../components/Comments';
 import QuoteHeader from "../../components/QuoteHeader";
 
