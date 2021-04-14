@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router'
-import useFetchPostDelete from '../custom_hooks/useFetchPostDelete'
+import useCommentFetch from '../custom_hooks/useCommentFetch'
 
 const Comments = ({postId}) => {
 
@@ -13,10 +13,15 @@ const Comments = ({postId}) => {
     
     // Fetch All Comments
     useEffect(async() => {
-        const response = await fetch(`http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`)
-        const data = await response.json()
-        setComments(data)
-        setCommentCount(data.length)
+
+        const setCommentsFunc = (data) => {
+            setComments(data)
+            setCommentCount(data.length)
+        }
+        useCommentFetch(
+            {url: `http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`},
+            setCommentsFunc);
+
     }, [commentCount]);
 
     // Determine the number of comments once they have loaded.
@@ -47,47 +52,42 @@ const Comments = ({postId}) => {
             content: newComment,
         }
 
-        // Post new comment to Comments api
-        fetch(`http://localhost:8000/comments?_sort=date&_order=asc`, {
+        const commentSubmitFunc = (data) => {
+            setCommentCount(data.length)
+            setName('')
+            setNewComment('')
+        }
+
+        useCommentFetch(
+            {
+            url: `http://localhost:8000/comments?_sort=date&_order=asc`,
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(newCommentToPost),
-            }).then(() => {
-                fetch(`http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`)
-                    .then(response => {
-                        if(!response.ok){
-                            throw Error('Sorry, but there was an error and we could not fetch the comments.')
-                        }
-                        return response.json()
-                    })
-                    .then(data => {
-                        setCommentCount(data.length)
-                        setName('')
-                        setNewComment('')
-                    })
-                    .catch(err => {
-                        setError(err.message)
-                    })   
-                })
+            body: newCommentToPost,
+            },
+            commentSubmitFunc);
+
     }
     // Comment Delete Handler
     const handleDelete = (commentId) => {
-        // Delete Request to Comments api
-        fetch(`http://localhost:8000/comments/${commentId}`, {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
-            body: null
-            }).then(() => {
-                // Another fetch req and comment count
-                fetch(`http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`)
-                    .then(response => {
-                        return response.json()
-                    })
-                    .then(data => {
-                        setCommentCount(data.length)
-                    })
-            })
+
+        const pass = (data) => null;
+        const setDelComCount = (data) => {
+            setCommentCount(data.length)
         }
+
+        useCommentFetch(
+        {
+            url: `http://localhost:8000/comments/${commentId}`,
+            method: 'DELETE',
+        }, pass)
+        .then(() => {
+            useCommentFetch(
+            {url: `http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`},
+            setDelComCount);
+        })
+
+    }
 
     return ( 
     <>

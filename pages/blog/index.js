@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Card from 'react-bootstrap/Card'
 import Link from 'next/link'
 import SkipToMain from '../../components/SkipToMain';
-import useFetchPostDelete from '../../custom_hooks/useFetchPostDelete'
+import useFetchPostDelete from '../../custom_hooks/useCommentFetch'
 const fetch = require('node-fetch');
 
 // Blog Posts Fetched & Loaded at Build Time
@@ -11,15 +11,13 @@ export const getStaticProps = async () => {
     const response = await fetch('http://localhost:8000/posts?_sort=publish_date&_order=desc');
     const data = await response.json();
 
-    // const data = useFetch('http://localhost:8000/posts?_sort=publish_date&_order=desc')
-
     return {
         props: { posts: data }
     }
 }
 
 const Blog = ({ posts }) => {
-    console.log(posts)
+    
     return (
         <>
             <Head>

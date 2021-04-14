@@ -233,22 +233,6 @@
       "id": 23
     },
     {
-      "postId": 8,
-      "parentId": null,
-      "user": "Harry",
-      "date": "2021-04-12",
-      "content": "Hello",
-      "id": 27
-    },
-    {
-      "postId": 8,
-      "parentId": null,
-      "user": "Valerie",
-      "date": "2021-04-12",
-      "content": "asdas",
-      "id": 28
-    },
-    {
       "postId": 6,
       "parentId": null,
       "user": "Valerie",
@@ -279,6 +263,14 @@
       "date": "2021-04-14",
       "content": "Loved this!",
       "id": 33
+    },
+    {
+      "postId": 9,
+      "parentId": null,
+      "user": "Checking the rest still works? ",
+      "date": "2021-04-14",
+      "content": "hello",
+      "id": 34
     }
   ]
 }
