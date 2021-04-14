@@ -44,21 +44,19 @@ const Navbar = () => {
                             </li>
                         )}
                         { session && (
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link href="/user-dashboard">
-                                    <a class="nav-link hvr-underline-from-center" aria-current="page">
+                                    <a className="nav-link hvr-underline-from-center" aria-current="page">
                                         User Dashboard
                                     </a>
                                 </Link> 
                             </li>
                         )}
                         { session && (
-                            <li class="nav-item">
-                                <Link href="/logout">
-                                    <a class="nav-link hvr-underline-from-center" aria-current="page" onClick={logoutHandler}>
-                                        Logout
-                                    </a>
-                                </Link>
+                            <li className="nav-item">
+                                <a className="nav-link hvr-underline-from-center logout-link" aria-current="page" onClick={logoutHandler}>
+                                    Logout
+                                </a>
                             </li>
                         )}
                     </ul>

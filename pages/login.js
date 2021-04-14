@@ -2,11 +2,17 @@ import { useRef } from 'react';
 import Head from 'next/head'
 import SkipToMain from '../components/SkipToMain'
 import { signIn } from 'next-auth/client';
+import { checkSession } from '../helpers/checkSession'
+import { useRouter } from 'next/router'
 
 const Login = () => {
 
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+
+    const router = useRouter();
+
+    checkSession()
 
     async function submitHandler(event){
         event.preventDefault();
@@ -20,11 +26,11 @@ const Login = () => {
             password: enteredPassword 
         });
 
-        console.log(result)
-        
-        
-    }
+        if (!result.error){
+            router.replace('/user-dashboard');
+        }
 
+    }
 
     return (
         <>
@@ -49,7 +55,7 @@ const Login = () => {
                         <h1 id="main" className="mt-4">Login</h1>
                         <form method="POST" onSubmit={ submitHandler }>
                             <div className="mb-3">
-                                <label for="email" className="form-label">Email address</label>
+                                <label htmlFor="email" className="form-label">Email address</label>
                                 <input 
                                     type="email" 
                                     name="email" 
@@ -60,7 +66,7 @@ const Login = () => {
                                     ref={emailInputRef} />
                             </div>
                             <div className="mb-3">
-                                <label for="password" className="form-label">Password</label>
+                                <label htmlFor="password" className="form-label">Password</label>
                                 <input 
                                     type="password" 
                                     name="password" 

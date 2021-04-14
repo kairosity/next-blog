@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import Head from 'next/head'
 import SkipToMain from '../components/SkipToMain'
+import { checkSession } from '../helpers/checkSession'
 
 async function createNewUser(username, email, password, password2){
 
@@ -44,6 +45,8 @@ const Register = () => {
     const passwordInputRef = useRef();
     const password2InputRef = useRef();
 
+    checkSession();
+
     async function submitHandler(event){
         event.preventDefault();
 
@@ -83,12 +86,12 @@ const Register = () => {
                             <h1 className="mt-4">Register</h1>
                                 <form className="mt-4" method="POST" onSubmit={ submitHandler }>
                                     <div className="mb-3">
-                                        <label for="username" className="form-label">Username</label>
+                                        <label htmlFor="username" className="form-label">Username</label>
                                         <input type="text" name="username" className="form-control" id="username"
                                             aria-describedby="username" required ref={ usernameInputRef } />
                                     </div>
                                     <div className="mb-3">
-                                        <label for="email" className="form-label">Email address</label>
+                                        <label htmlFor="email" className="form-label">Email address</label>
                                         <input type="email" name="email" className="form-control" id="email"
                                             aria-describedby="emailHelp" required ref={ emailInputRef } />
                                         <div id="emailHelp" className="form-text">We'll never share your email with
@@ -96,13 +99,13 @@ const Register = () => {
                                         </div>
                                     </div>
                                     <div className="mb-3">
-                                        <label for="password" className="form-label">Password</label>
+                                        <label htmlFor="password" className="form-label">Password</label>
                                         <input type="password" name="password" className="form-control" id="password"
                                             aria-describedby="passwordHelp" ref={ passwordInputRef }/>
                                         <div id="passwordHelp" className="form-text">Please choose a password</div>
                                     </div>
                                     <div className="mb-3">
-                                        <label for="passwordConfirmation" className="form-label">Password
+                                        <label htmlFor="passwordConfirmation" className="form-label">Password
                                             Confirmation</label>
                                         <input type="password" name="passwordConfirmation" className="form-control"
                                             id="passwordConfirmation" aria-describedby="passwordConfirmationHelp"
@@ -113,7 +116,7 @@ const Register = () => {
                                     </div>
                                     <div className="mb-3 form-check">
                                         <input type="checkbox" name="marketing" className="form-check-input" id="marketing" />
-                                        <label className="form-check-label" for="marketing">Please send me a monthly
+                                        <label className="form-check-label" htmlFor="marketing">Please send me a monthly
                                             email
                                             update.</label>
                                     </div>

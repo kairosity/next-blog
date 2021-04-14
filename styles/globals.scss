@@ -142,12 +142,14 @@ a.skip-to-main:focus {
   }
   .navbar-nav{
     .nav-item {
+      .logout-link{
+        cursor: pointer;
+      }
       .nav-link{
         color: $indigo;
         font-weight: 500;
         font-size: 1.1rem;
         letter-spacing: 1px;
-        
       } 
     }  
   }
