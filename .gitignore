@@ -514,4 +514,4 @@ ASALocalRun/
 
 # Database Deets:
 helpers/db.js
-next.config.js
+/next.config.js
