@@ -511,3 +511,6 @@ ASALocalRun/
 
 
 # End of https://www.gitignore.io/api/vim,node,kate,sublimetext,visualstudio,visualstudiocode
+
+# Database Deets:
+helpers/db.js

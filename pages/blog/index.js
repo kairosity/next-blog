@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Card from 'react-bootstrap/Card'
 import Link from 'next/link'
 import SkipToMain from '../../components/SkipToMain';
-import useFetchPostDelete from '../../custom_hooks/useCommentFetch'
 const fetch = require('node-fetch');
 
 // Blog Posts Fetched & Loaded at Build Time

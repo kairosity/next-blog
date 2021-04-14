@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Comments from '../../components/Comments';
 import QuoteHeader from "../../components/QuoteHeader";
+import Head from 'next/head'
 
 // Fetches all posts and returns slug paths
 export const getStaticPaths = async () => {
@@ -38,7 +39,6 @@ export const getStaticProps = async (context) => {
 }
 
 
-
 const Post = ({ post }) => {
 
     // Cleanses the post content of all the <p></p> tags:
@@ -48,6 +48,17 @@ const Post = ({ post }) => {
     let sanitizedContent2 = sanitizedContent1.replace(regex2, "");
 
     return ( 
+        <>
+            <Head>
+                <title>Health Blog | {post.title}</title>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="keywords" content="healthblog, health, blog, health blog, nutrition, medicine, healthy living, login"/>
+                <meta name="description" content="Health Blog is a healthy living blog with lots of interesting articles about health, nutrition, healthy living and exercise." />
+                <meta name="geo.region" content="IE-D" />
+                <meta name="geo.placename" content="Dublin" />
+                <meta name="geo.position" content="53.349765;-6.260273" />
+                <meta name="ICBM" content="53.349765, -6.260273" />
+            </Head>
             <main className="blog-post-container container-fluid">
 {/* Blog Post Header / Inspirational Quotes */}
                 <QuoteHeader id={ post.id }/>
@@ -92,6 +103,7 @@ const Post = ({ post }) => {
                 </section>
                 < Comments postId={ post.id } />
             </main>
+            </>
     );
 }
 

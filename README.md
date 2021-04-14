@@ -4,7 +4,6 @@
 2. npm run dev: runs the app locally on port 3000
 
 ## Functionality
-
 - Main blog page is loaded via getStaticProps at build.
 - Individual blog post pages are also loaded at buildtime.
 - Comments are fetched on page load, and then again anytime the commentCount changes
@@ -13,12 +12,15 @@
 - Users can register, login & logout.
 - Authentication is handled using next-auth JWT
 - Users are saved to MongoDB.
-- Pages are viewed conditionally, 
+
+- Pages are viewed conditionally, based on whether a user is logged in or not.
+- User Dashboard is only visible to logged in users.
+- Logged in users cannot view Register or Login Pages.
+
+- No UI user notifications implemented yet. All error & success messaging currently happens in the console.
 
 
 ## Testing
-
-
 - Basic tests on non-API-reliant elements are functional.
 - Issues arose with testing async functionality. Specifically I could not map through individual blog posts.
 - More research is needed on my part to create & run these tests, but the scaffolding can be seen in
@@ -30,7 +32,11 @@
     - pages/blog/\_\_tests\_\_/index.test.js
 
 
-## Notes:
+## Future Development Priorities:
+- Optimize image sizing
+- User notifications & Feedback. 
+- Search bar functionality. 
 
+## Notes:
 - react-bootstrap is not ideal for accessibility as it renders Card.Title and similar elements as \<div>s instead of 
 as semantic markup.

@@ -43,7 +43,7 @@ const Footer = () => {
                 </ul>
                 </div>
             </div>
-            <p className="copyright-notice ">&copy <span id="year"></span> Health Blog</p>
+            <p className="copyright-notice ">&copy; <span id="year">2021</span> Health Blog</p>
         </footer>
     );
 }

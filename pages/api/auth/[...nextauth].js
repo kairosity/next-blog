@@ -29,7 +29,10 @@ export default NextAuth({
                 }
 
                 client.close();
-                return { email: user.email };
+                return {
+                        name: user.username, 
+                        email: user.email 
+                        };
 
                 
             }

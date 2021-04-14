@@ -2,8 +2,10 @@
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/client';
 
+    
 const Navbar = () => {
     const [session, loading] = useSession();
+    const sessUsername = session ? session.user.name : null;
 
     function logoutHandler(){
         signOut();
@@ -47,7 +49,7 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link href="/user-dashboard">
                                     <a className="nav-link hvr-underline-from-center" aria-current="page">
-                                        User Dashboard
+                                    {sessUsername.replace(/^\w/, (c) => c.toUpperCase())}'s Dashboard
                                     </a>
                                 </Link> 
                             </li>

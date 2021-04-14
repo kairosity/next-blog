@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Router from 'next/router'
 import useCommentFetch from '../custom_hooks/useCommentFetch'
+import { useSession } from 'next-auth/client';
 
 const Comments = ({postId}) => {
 
+    const [session, loading] = useSession();
+    const sessUsername = session ? session.user.name : null;
+
     const [comments, setComments] = useState(null);
-    const [name, setName] = useState('');
+    const [name, setName] = useState(sessUsername ? sessUsername : '');
     const [newComment, setNewComment] = useState('');
     const [commentCount, setCommentCount] = useState(null);
-    const [error, setError] = useState(null);
+    
     
     // Fetch All Comments
     useEffect(async() => {
 
+        // Data Function for Custom Hook
         const setCommentsFunc = (data) => {
             setComments(data)
             setCommentCount(data.length)
         }
+
+        // Custom Hook
         useCommentFetch(
             {url: `http://localhost:8000/posts/${postId}/comments/?_sort=date&_order=desc`},
             setCommentsFunc);
@@ -40,7 +46,7 @@ const Comments = ({postId}) => {
     // Submit Handler for when a new comment is POSTED
     const handleSubmit = (e) => {
 
-        // Don't reload the page on form submit
+        // Stop page reload on form submit
         e.preventDefault();
 
         // New Comment Data to Post
@@ -52,12 +58,13 @@ const Comments = ({postId}) => {
             content: newComment,
         }
 
+        // Data Function to pass to custom hook
         const commentSubmitFunc = (data) => {
             setCommentCount(data.length)
             setName('')
             setNewComment('')
         }
-
+        // Comment Fetch Custom Hook
         useCommentFetch(
             {
             url: `http://localhost:8000/comments?_sort=date&_order=asc`,
@@ -75,7 +82,7 @@ const Comments = ({postId}) => {
         const setDelComCount = (data) => {
             setCommentCount(data.length)
         }
-
+        // Custom Hook X2
         useCommentFetch(
         {
             url: `http://localhost:8000/comments/${commentId}`,
@@ -96,7 +103,7 @@ const Comments = ({postId}) => {
             <hr/>
             <h3 className="mt-3"><i className="fas fa-pen-nib"></i> Add a Comment</h3>
             <p>We're happy for you to leave a comment that is appropriate and in line with our 
-                <Link href="#"><a>comments policy</a></Link>. 
+                <Link href="#"><a> comments policy</a></Link>. 
                 Please try not to leave spam, as our links are all nofollow. Let's just have an interesting conversation.</p>
 
             <div className="mb-3">

@@ -2,6 +2,9 @@ import { useRef } from 'react';
 import Head from 'next/head'
 import SkipToMain from '../components/SkipToMain'
 import { checkSession } from '../helpers/checkSession'
+import { useRouter } from 'next/router'
+
+    
 
 async function createNewUser(username, email, password, password2){
 
@@ -45,6 +48,8 @@ const Register = () => {
     const passwordInputRef = useRef();
     const password2InputRef = useRef();
 
+    const router = useRouter();
+
     checkSession();
 
     async function submitHandler(event){
@@ -56,11 +61,11 @@ const Register = () => {
         const enteredPassword2 = password2InputRef.current.value;
         try{
             const result = await createNewUser(enteredUsername, enteredEmail, enteredPassword, enteredPassword2)
-            console.log(result);
+            router.replace('/login');
         } catch (error){
             console.log("Error:"+ error);
         }
-        
+
     }
 
     return (
