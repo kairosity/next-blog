@@ -1,5 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Database Deets:
+/helpers/db.js
+/next.config.js
+
 # dependencies
 /node_modules
 /.pnp
@@ -512,6 +516,3 @@ ASALocalRun/
 
 # End of https://www.gitignore.io/api/vim,node,kate,sublimetext,visualstudio,visualstudiocode
 
-# Database Deets:
-helpers/db.js
-/next.config.js
