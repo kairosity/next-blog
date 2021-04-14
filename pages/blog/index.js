@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
 }
 
 const Blog = ({ posts }) => {
-    
+console.log(process.env.NEXT_PUBLIC_TEST)
     return (
         <>
             <Head>

@@ -13,6 +13,7 @@ const NotFound = () => {
         }, 4000)
     }, [])
 
+
     return (
         <>
             <Head>

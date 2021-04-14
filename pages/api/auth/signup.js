@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
 import { hashPassword } from '../../../helpers/auth';
-import { connectToDatabase } from '../../../helpers/db';
+import { connectToDatabase } from '../../../helpers/db-connect';
 
 
 async function handler(request, response){
