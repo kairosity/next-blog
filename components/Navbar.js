@@ -1,7 +1,13 @@
 
 import Link from 'next/link'
+import { useSession, signOut } from 'next-auth/client';
 
 const Navbar = () => {
+    const [session, loading] = useSession();
+
+    function logoutHandler(){
+        signOut();
+    }
     return ( 
         <nav className="navbar shadow-sm navbar-expand-lg navbar-light d-flex align-content-center align-items-start fixed-top">
             <div className="container-fluid">
@@ -13,14 +19,48 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link href="/blog"><a className="nav-link hvr-underline-from-center" aria-current="page">Home</a></Link>
+                            <Link href="/blog">
+                                <a className="nav-link hvr-underline-from-center" aria-current="page">
+                                    Home
+                                </a>
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link href="/register"><a className="nav-link hvr-underline-from-center">Register</a></Link>
-                        </li>
-                        <li className="nav-item ">
-                            <Link href="/login"><a className="nav-link hvr-underline-from-center">Login</a></Link>
-                        </li>
+                        { !session && !loading &&(
+                            <li className="nav-item">
+                                <Link href="/register">
+                                    <a className="nav-link hvr-underline-from-center" >
+                                        Register
+                                    </a>
+                                </Link>
+                            </li>
+                        )}
+                        { !session && !loading && (
+                            <li className="nav-item ">
+                                <Link href="/login">
+                                    <a className="nav-link hvr-underline-from-center">
+                                        Login
+                                    </a>
+                                </Link>
+                            </li>
+                        )}
+                        { session && (
+                            <li class="nav-item">
+                                <Link href="/user-dashboard">
+                                    <a class="nav-link hvr-underline-from-center" aria-current="page">
+                                        User Dashboard
+                                    </a>
+                                </Link> 
+                            </li>
+                        )}
+                        { session && (
+                            <li class="nav-item">
+                                <Link href="/logout">
+                                    <a class="nav-link hvr-underline-from-center" aria-current="page" onClick={logoutHandler}>
+                                        Logout
+                                    </a>
+                                </Link>
+                            </li>
+                        )}
                     </ul>
                     <form className="d-flex search" action="/blog/search" method="GET">
                         <input className="form-control me-2" type="text" name="keyword" placeholder="Search Posts"

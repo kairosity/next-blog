@@ -1,7 +1,65 @@
+import { useRef } from 'react';
 import Head from 'next/head'
 import SkipToMain from '../components/SkipToMain'
 
+async function createNewUser(username, email, password, password2){
+
+    let errors = [];
+
+    // Custom Validations: Check passwords match
+    if (password !== password2){
+        errors.push({ msg: "Passwords do not match."});
+    }
+
+    if (errors.length > 0){
+        console.log("There are errors")
+        console.log(errors)
+    } else {
+
+        const response = await fetch('api/auth/signup', {
+            method: 'POST',
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                password: password
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const data = await response.json();
+
+        if(!response.ok){
+            throw new Error(data.message || 'Oops something went wrong!')
+        }
+        return data;
+    }
+
+}
+
 const Register = () => {
+
+    const usernameInputRef = useRef();
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+    const password2InputRef = useRef();
+
+    async function submitHandler(event){
+        event.preventDefault();
+
+        const enteredUsername = usernameInputRef.current.value;
+        const enteredEmail = emailInputRef.current.value;
+        const enteredPassword = passwordInputRef.current.value;
+        const enteredPassword2 = password2InputRef.current.value;
+        try{
+            const result = await createNewUser(enteredUsername, enteredEmail, enteredPassword, enteredPassword2)
+            console.log(result);
+        } catch (error){
+            console.log("Error:"+ error);
+        }
+        
+    }
+
     return (
         <>
             <Head>
@@ -23,16 +81,16 @@ const Register = () => {
                     <div id="main" className="row">
                         <div className="form-container register-form col col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-5">
                             <h1 className="mt-4">Register</h1>
-                                <form className="mt-4" action="/register" method="POST">
+                                <form className="mt-4" method="POST" onSubmit={ submitHandler }>
                                     <div className="mb-3">
                                         <label for="username" className="form-label">Username</label>
                                         <input type="text" name="username" className="form-control" id="username"
-                                            aria-describedby="username" required />
+                                            aria-describedby="username" required ref={ usernameInputRef } />
                                     </div>
                                     <div className="mb-3">
                                         <label for="email" className="form-label">Email address</label>
                                         <input type="email" name="email" className="form-control" id="email"
-                                            aria-describedby="emailHelp" required />
+                                            aria-describedby="emailHelp" required ref={ emailInputRef } />
                                         <div id="emailHelp" className="form-text">We'll never share your email with
                                             anyone else.
                                         </div>
@@ -40,14 +98,15 @@ const Register = () => {
                                     <div className="mb-3">
                                         <label for="password" className="form-label">Password</label>
                                         <input type="password" name="password" className="form-control" id="password"
-                                            aria-describedby="passwordHelp" />
+                                            aria-describedby="passwordHelp" ref={ passwordInputRef }/>
                                         <div id="passwordHelp" className="form-text">Please choose a password</div>
                                     </div>
                                     <div className="mb-3">
                                         <label for="passwordConfirmation" className="form-label">Password
                                             Confirmation</label>
                                         <input type="password" name="passwordConfirmation" className="form-control"
-                                            id="passwordConfirmation" aria-describedby="passwordConfirmationHelp" />
+                                            id="passwordConfirmation" aria-describedby="passwordConfirmationHelp"
+                                            ref={ password2InputRef } />
                                         <div id="passwordConfirmationHelp" className="form-text">Please enter your new
                                             password
                                             again</div>

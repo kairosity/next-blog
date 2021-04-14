@@ -2,18 +2,21 @@ import Head from 'next/head'
 import Card from 'react-bootstrap/Card'
 import Link from 'next/link'
 import SkipToMain from '../../components/SkipToMain';
+import useFetchPostDelete from '../../custom_hooks/useFetchPostDelete'
+const fetch = require('node-fetch');
 
 // Blog Posts Fetched & Loaded at Build Time
 export const getStaticProps = async () => {
+    
     const response = await fetch('http://localhost:8000/posts?_sort=publish_date&_order=desc');
     const data = await response.json();
+
+    // const data = useFetch('http://localhost:8000/posts?_sort=publish_date&_order=desc')
 
     return {
         props: { posts: data }
     }
 }
-
-
 
 const Blog = ({ posts }) => {
     console.log(posts)
@@ -36,7 +39,7 @@ const Blog = ({ posts }) => {
                 <section className="feature">
                     <SkipToMain />
                         <div className="container d-flex flex-column">
-                            <h1 className="main-heading dark-text">Welcome to this Health Blog</h1>
+                            <h1 className="main-heading dark-text"  role="heading">Welcome to this Health Blog</h1>
                             <p className="lead">This is an interesting blog featuring lots of different articles about
                                 health, nutrition and longevity.
                                 It is designed to catch your attention in a calming manner. This area could also be used

@@ -36,10 +36,10 @@ const Footer = () => {
             <div className="footer-social-media row d-flex flex-column">
                 <div className="social-media-container d-flex flex-column">
                 <ul className="nav navbar footbar">
-                    <li className="nav-item "><a className="nav-link" target="_blank" href="http://twitter.com"><i className="fab fa-twitter"></i></a></li>
-                    <li className="nav-item "><a className="nav-link" target="_blank" href="http://facebook.com"><i className="fab fa-facebook-f"></i></a></li>
-                    <li className="nav-item "><a className="nav-link" target="_blank" href="http://instagram.com"><i className="fab fa-instagram"></i></a></li>
-                    <li className="nav-item "><a className="nav-link" target="_blank" href="http://linkedin.com"><i className="fab fa-linkedin-in"></i></a></li>
+                    <li className="nav-item "><a aria-label='twitter-link' className="nav-link" target="_blank" href="http://twitter.com"><i className="fab fa-twitter"></i></a></li>
+                    <li className="nav-item "><a aria-label='facebook-link' className="nav-link" target="_blank" href="http://facebook.com"><i className="fab fa-facebook-f"></i></a></li>
+                    <li className="nav-item "><a aria-label='instagram-link' className="nav-link" target="_blank" href="http://instagram.com"><i className="fab fa-instagram"></i></a></li>
+                    <li className="nav-item "><a aria-label='linkedin-link' className="nav-link" target="_blank" href="http://linkedin.com"><i className="fab fa-linkedin-in"></i></a></li>
                 </ul>
                 </div>
             </div>

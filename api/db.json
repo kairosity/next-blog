@@ -209,14 +209,6 @@
       "content": "Thank you, this article was very informative. Rgds, Geoff"
     },
     {
-      "id": 18,
-      "postId": 6,
-      "parentId": null,
-      "user": "testing12",
-      "date": "2021-03-22",
-      "content": "Just testing this again."
-    },
-    {
       "postId": 7,
       "parentId": null,
       "user": "Testing",
@@ -241,14 +233,6 @@
       "id": 23
     },
     {
-      "postId": 9,
-      "parentId": null,
-      "user": "Valerie",
-      "date": "2021-04-12",
-      "content": "Here is a new comment that I won't delete.",
-      "id": 24
-    },
-    {
       "postId": 8,
       "parentId": null,
       "user": "Harry",
@@ -265,12 +249,28 @@
       "id": 28
     },
     {
+      "postId": 6,
+      "parentId": null,
+      "user": "Valerie",
+      "date": "2021-04-12",
+      "content": "Hello again",
+      "id": 30
+    },
+    {
       "postId": 9,
       "parentId": null,
-      "user": "Harry",
+      "user": "Valerie",
       "date": "2021-04-12",
-      "content": "Won't update immediately",
-      "id": 29
+      "content": "I loved this article. Really really informative. Thank you. V",
+      "id": 31
+    },
+    {
+      "postId": 3,
+      "parentId": null,
+      "user": "Ben Schacter",
+      "date": "2021-04-12",
+      "content": "Great read. Also loved the latin. Not enough articles written in Latin nowadays imho. ",
+      "id": 32
     }
   ]
 }
