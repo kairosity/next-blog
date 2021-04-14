@@ -10,4 +10,7 @@ module.exports = {
             }
         ]
     },
+    env: {
+        mongodb_uri: 'mongodb+srv://henri:iTDD2952vnkhZMbS@cluster0.todca.mongodb.net/next-blog?retryWrites=true&w=majority',
+    }
 }
